@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
+import Login from './components/login/login';
+import TableCom from './components/main/main';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    // Perform your login logic here
+    // For simplicity, let's assume login is successful
+    setIsLoggedIn(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={<Login onLogin={handleLogin} />}
+        />
+        {isLoggedIn ? (
+          <Route path="/" element={<Navigate to="/TableCom" />} />
+        ) : (
+          <Route path="/" element={<Navigate to="/login" />} />
+        )}
+        <Route path="/TableCom" element={<TableCom />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+

@@ -1,0 +1,102 @@
+// import axios from "axios";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { toast } from "react-toastify";
+
+// const Login = () => {
+//   const navigate = useNavigate();
+//   const [phoneNumber, setPhoneNumber] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const response = await axios.post("https://ratingkorea.pythonanywhere.com/api/v1/", {
+//         phoneNumber,
+//         password,
+//       });
+
+//       if (response.status === 200) {
+//         const { access } = response.data;
+//         toast.success("You are logged in");
+//         localStorage.setItem("user", access);
+//         navigate("/TableCom");
+//       } else {
+//         toast.error("Failed to login");
+//       }
+//     } catch (error) {
+//       if (error.response) {
+//         // Server responded with a status code outside the range of 2xx
+//         toast.error(error.response.data.message || "An error occurred during login");
+//       } else if (error.request) {
+//         // The request was made but no response was received
+//         console.error("No response received:", error.request);
+//         toast.error("No response received from the server");
+//       } else {
+//         // Something happened in setting up the request that triggered an error
+//         console.error("Error setting up request:", error.message);
+//         toast.error("Error setting up the request");
+//       }
+//     }
+//   };
+
+//   return (
+//     <div className="flex justify-center items-center h-screen">
+//       <div className="max-w-md mx-auto">
+//         <h1 className="text-2xl font-extrabold text-gray-800 mb-2 h-8 mx-auto">
+//           Login
+//         </h1>
+//         <hr className="border border-white-300 mb-3" />
+//         <form onSubmit={handleLogin}>
+//           <div className="mb-4">
+//             <label
+//               htmlFor="phone"
+//               className="block text-sm font-medium text-grey"
+//             >
+//               Phone Number
+//             </label>
+//             <input
+//               type="tel"
+//               id="phone"
+//               value={phoneNumber}
+//               onChange={(e) => setPhoneNumber(e.target.value)}
+//               className="mt-1 block w-full px-3 py-2 border-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-800"
+//               placeholder="Phone Number"
+//               required
+//             />
+//           </div>
+//           <div className="mb-4">
+//             <label
+//               htmlFor="password"
+//               className="block text-sm font-medium text-grey"
+//             >
+//               Password
+//             </label>
+//             <input
+//               type="password"
+//               id="password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               className="mt-1 block w-full px-3 py-2 border-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-800"
+//               placeholder="Password"
+//               required
+//             />
+//           </div>
+//           <button
+//             type="submit"
+//             className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+//           >
+//             Login
+//           </button>
+//           <p className="text-center mt-3">
+//             <a href="" className="text-blue-600">
+//               Forgot Password?
+//             </a>
+//           </p>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
