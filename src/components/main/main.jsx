@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useGetTable1Query } from "../../redux";
 import AddProduct from "./add";
+import AddCategories from "./add";
 
 const TableCom = () => {
   return (
@@ -140,7 +141,7 @@ const TableCom = () => {
                 </a>
               </li>
             </ul>
-            <AddProduct/>
+            <AddCategories/>
           </div>
         </div>
       </nav>
